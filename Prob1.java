@@ -69,6 +69,7 @@ public class Prob1{
 		 
 		
 		br.close();
+pool.shutdown();
 				 	}
 	
 
