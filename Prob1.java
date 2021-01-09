@@ -1,4 +1,4 @@
-package temp;
+
 
 import java.io.BufferedReader;
 import java.io.File; 
@@ -31,7 +31,8 @@ String hexString = Integer.toHexString(i);
  
 System.out.println(s1+"="+hexString);
 
-}}
+}
+}
 
 class B extends A implements Runnable {
 
@@ -48,7 +49,7 @@ class B extends A implements Runnable {
 }
 
 
-public class Temp {
+public class Prob1{
 
 	public static void main(String[] args) throws IOException  {
 		
@@ -57,12 +58,10 @@ public class Temp {
 			BufferedReader br = new BufferedReader(new FileReader(file)); 
 			  
 		 
-		 ArrayList<Runnable> runnable=new ArrayList<Runnable>();
 		 ExecutorService pool = Executors.newFixedThreadPool(5);
 		  
 		 String st; 
 		  while ((st = br.readLine()) != null) {
-		    System.out.println(st); 
 		    Runnable r=new B(st);
 		    pool.execute(r);
 			  
@@ -70,7 +69,7 @@ public class Temp {
 		 
 		
 		br.close();
-		 	}
+				 	}
 	
 
 }
