@@ -1,18 +1,24 @@
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File; 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.*;
 
-class A {
+interface Calculate{
+  void cal(String s1);
+}
+
+class A  {
 
 void hexCalculate(String s1){
 
-
+Calculate c=(String s)->{
 StringBuilder builder = new StringBuilder();
           
 for (char ch: s1.toCharArray()) {
@@ -31,6 +37,28 @@ String hexString = Integer.toHexString(i);
  
 System.out.println(s1+"="+hexString);
 
+try{
+
+File file = new File("append.txt");
+FileWriter fr = new FileWriter(file, true);
+BufferedWriter br = new BufferedWriter(fr);
+br.write(s1+"="+hexString);
+br.newLine();
+br.close();
+fr.close();
+
+}
+catch (Exception e)
+{
+System.out.println(e);
+}
+
+
+
+};
+
+c.cal(s1);
+
 }
 }
 
@@ -42,7 +70,7 @@ class B extends A implements Runnable {
 	}
 	
 	@Override
-	public void run() {
+	public void run(){
 		hexCalculate(s);
 	}
 
