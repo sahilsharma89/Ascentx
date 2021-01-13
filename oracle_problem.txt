@@ -1,3 +1,4 @@
+create view view_name as
 select p.position_id, p.depo_id,p.security_id,p.currency_id,d.depo_ky,p.position_type_id,pt.position_type,s.description,c.currency_ky  
 from t_position p inner join
 t_depository d 
