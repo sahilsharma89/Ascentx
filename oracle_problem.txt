@@ -1,0 +1,13 @@
+select p.position_id, p.depo_id,p.security_id,p.currency_id,d.depo_ky,p.position_type_id,pt.position_type,s.description,c.currency_ky  
+from t_position p inner join
+t_depository d 
+on p.depo_id=d.depo_id 
+inner join 
+t_security s
+on p.security_id=s.security_id 
+inner join 
+t_currency c
+on p.currency_id=c.currency_id 
+inner join 
+t_positiontype pt
+on pt.position_type_id =p.position_type_id;
